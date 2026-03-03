@@ -57,16 +57,21 @@ function showView(name) {
 }
 
 // ── Navigation ───────────────────────────────────────────────
+function navigateTo(view) {
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.toggle('active', b.dataset.view === view));
+  document.querySelectorAll('.mobile-nav-btn').forEach(b => b.classList.toggle('active', b.dataset.view === view));
+  if (view === 'dashboard') renderDashboard();
+  else if (view === 'topics') renderTopics();
+  else if (view === 'progress') renderProgress();
+  showView(view);
+}
+
 document.querySelectorAll('.nav-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const view = btn.dataset.view;
-    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    if (view === 'dashboard') renderDashboard();
-    else if (view === 'topics') renderTopics();
-    else if (view === 'progress') renderProgress();
-    showView(view);
-  });
+  btn.addEventListener('click', () => navigateTo(btn.dataset.view));
+});
+
+document.querySelectorAll('.mobile-nav-btn').forEach(btn => {
+  btn.addEventListener('click', () => navigateTo(btn.dataset.view));
 });
 
 // ── Helpers ──────────────────────────────────────────────────
@@ -424,6 +429,8 @@ function renderProgress() {
 function renderSidebarStats() {
   document.getElementById('streak-count').textContent = state.streak;
   document.getElementById('xp-count').textContent = state.xp;
+  document.getElementById('m-streak').textContent = state.streak;
+  document.getElementById('m-xp').textContent = state.xp;
 }
 
 // ── INIT ──────────────────────────────────────────────────────
