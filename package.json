@@ -1,0 +1,12 @@
+{
+  "name": "276mimo",
+  "version": "1.0.0",
+  "description": "Personalized Mimo-style learning app for CMPT 276",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

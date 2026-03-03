@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>276Mimo — CMPT 276 Learning</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- ── SIDEBAR ── -->
+    <aside id="sidebar">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">276Mimo</span>
+      </div>
+
+      <nav id="sidebar-nav">
+        <button class="nav-btn active" data-view="dashboard">
+          <span class="nav-icon">🏠</span> Dashboard
+        </button>
+        <button class="nav-btn" data-view="topics">
+          <span class="nav-icon">📚</span> Topics
+        </button>
+        <button class="nav-btn" data-view="progress">
+          <span class="nav-icon">📊</span> Progress
+        </button>
+      </nav>
+
+      <div class="sidebar-stats">
+        <div class="stat-row">
+          <span class="stat-icon">🔥</span>
+          <span id="streak-count">0</span>
+          <span class="stat-label">day streak</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-icon">⭐</span>
+          <span id="xp-count">0</span>
+          <span class="stat-label">XP earned</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ── MAIN CONTENT ── -->
+    <main id="main">
+
+      <!-- DASHBOARD VIEW -->
+      <div id="view-dashboard" class="view active">
+        <header class="view-header">
+          <h1>Welcome back! 👋</h1>
+          <p class="subtext">Pick up where you left off — your CMPT 276 journey continues.</p>
+        </header>
+
+        <div class="section-title">Continue Learning</div>
+        <div id="continue-card" class="continue-card"></div>
+
+        <div class="section-title">All Topics</div>
+        <div id="dashboard-topics" class="topic-grid"></div>
+      </div>
+
+      <!-- TOPICS VIEW -->
+      <div id="view-topics" class="view">
+        <header class="view-header">
+          <h1>📚 Topics</h1>
+          <p class="subtext">All 5 CMPT 276 topics — pick one to start or continue.</p>
+        </header>
+        <div id="topics-list" class="topic-grid"></div>
+      </div>
+
+      <!-- PROGRESS VIEW -->
+      <div id="view-progress" class="view">
+        <header class="view-header">
+          <h1>📊 Your Progress</h1>
+          <p class="subtext">Track your mastery across all topics.</p>
+        </header>
+        <div id="progress-list"></div>
+        <div class="progress-summary">
+          <div class="summary-card">
+            <div class="summary-number" id="total-lessons-done">0</div>
+            <div class="summary-label">Lessons Completed</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-number" id="total-quizzes-done">0</div>
+            <div class="summary-label">Quizzes Passed</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-number" id="total-xp">0</div>
+            <div class="summary-label">Total XP</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOPIC DETAIL VIEW -->
+      <div id="view-topic-detail" class="view">
+        <button class="back-btn" id="back-to-topics">← Back</button>
+        <header class="view-header" id="topic-detail-header"></header>
+        <div id="lesson-list" class="lesson-list"></div>
+      </div>
+
+      <!-- LESSON VIEW -->
+      <div id="view-lesson" class="view">
+        <div class="lesson-topbar">
+          <button class="back-btn" id="back-to-topic">← Exit</button>
+          <div class="lesson-progress-wrap">
+            <div class="lesson-progress-bar" id="lesson-progress-bar"></div>
+          </div>
+          <div class="lesson-xp-badge" id="lesson-xp-badge">+10 XP</div>
+        </div>
+
+        <div id="slide-container" class="slide-container"></div>
+
+        <div class="lesson-nav">
+          <button id="prev-slide" class="btn-secondary">← Prev</button>
+          <button id="next-slide" class="btn-primary">Next →</button>
+        </div>
+      </div>
+
+      <!-- QUIZ VIEW -->
+      <div id="view-quiz" class="view">
+        <div class="lesson-topbar">
+          <button class="back-btn" id="back-from-quiz">← Exit</button>
+          <div class="quiz-label">Quiz Time! 🧠</div>
+        </div>
+        <div id="quiz-container" class="quiz-container"></div>
+      </div>
+
+      <!-- COMPLETION VIEW -->
+      <div id="view-complete" class="view">
+        <div class="completion-screen">
+          <div class="completion-icon">🎉</div>
+          <h2 id="completion-title">Lesson Complete!</h2>
+          <p id="completion-sub"></p>
+          <div class="completion-xp" id="completion-xp">+10 XP</div>
+          <button class="btn-primary" id="completion-next">Continue</button>
+          <button class="btn-secondary" id="completion-back">Back to Topic</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
